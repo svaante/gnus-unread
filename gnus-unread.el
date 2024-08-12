@@ -47,11 +47,12 @@
 
 (defcustom gnus-unread-forms
   '((unless (zerop unread)
-      (propertize display-time-mail-string
-	          'display display-time-mail-icon
-                  'help-echo (format "%s unread in %s" unread gnus-unread-group)
-                  'face 'gnus-unread-face))
-    " ")
+      (concat
+       " "
+       (propertize display-time-mail-string
+	           'display display-time-mail-icon
+                   'help-echo (format "%s unread in %s" unread gnus-unread-group)
+                   'face 'gnus-unread-face))))
   "Forms evaled to construct `gnus-unread-mode-line'."
   :type '(repeat sexp))
 
